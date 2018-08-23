@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     static var questionNumber = 0
+    static var questionsWrong = 0
+    static var questionsRight = 0
     
     var questionsAndAnswers = [
         ("question1", ["rightAnswer1", "wrongAnswer1"]),
@@ -55,12 +57,14 @@ class ViewController: UIViewController {
 
     @IBAction func answerButton1(_ sender: Any) {
         self.view.backgroundColor = UIColor.green
+        ViewController.questionsRight += 1
         displayQuestionAndAnswers()
     }
     
     @IBAction func answerButton2(_ sender: Any) {
         self.view.backgroundColor = UIColor.red
         answerButton2.isEnabled = false
+        ViewController.questionsWrong += 1
     }
     
     
