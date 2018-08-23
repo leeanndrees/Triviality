@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     ]
     
     func displayQuestionAndAnswers() {
+        if ViewController.questionNumber != questionsAndAnswers.count {
         let theQuestion = questionsAndAnswers[ViewController.questionNumber]
         
         questionLabel.text = theQuestion.0
@@ -42,6 +43,12 @@ class ViewController: UIViewController {
         answerButton2.setTitle("\(theQuestion.1[1])", for: .normal)
         
         ViewController.questionNumber += 1
+        print(ViewController.questionNumber)
+        }
+    
+        else {
+            print("end game")
+        }
     }
     
     func enableButtons() {
