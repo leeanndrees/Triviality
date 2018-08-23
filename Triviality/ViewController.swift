@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
+    static var questionNumber = 0
     
     var questionsAndAnswers = [
         ("question1", ["rightAnswer1", "wrongAnswer1"]),
@@ -32,14 +33,13 @@ class ViewController: UIViewController {
     ]
     
     func displayQuestionAndAnswers() {
-        var questionNumber = 0
-        let theQuestion = questionsAndAnswers[questionNumber]
+        let theQuestion = questionsAndAnswers[ViewController.questionNumber]
         
         questionLabel.text = theQuestion.0
         answerButton1.setTitle("\(theQuestion.1[0])", for: .normal)
         answerButton2.setTitle("\(theQuestion.1[1])", for: .normal)
         
-        questionNumber += 1
+        ViewController.questionNumber += 1
     }
 
     override func viewDidLoad() {
@@ -53,6 +53,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func nextButton(_ sender: Any) {
+        displayQuestionAndAnswers()
+    }
+    
 }
 
