@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
+    @IBOutlet weak var playAgainButton: UIButton!
+    
     static var questionNumber = 0
     static var questionsWrong = 0
     static var questionsRight = 0
@@ -47,13 +49,19 @@ class ViewController: UIViewController {
         }
     
         else {
-            print("end game")
+            endGame()
         }
     }
     
     func enableButtons() {
         answerButton1.isEnabled = true
         answerButton2.isEnabled = true
+    }
+    
+    func endGame() {
+        answerButton1.isEnabled = false
+        answerButton2.isEnabled = false
+        playAgainButton.isHidden = false
     }
     
     func loseGame() {
@@ -73,6 +81,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        playAgainButton.isHidden = true
         playGame()
     }
 
