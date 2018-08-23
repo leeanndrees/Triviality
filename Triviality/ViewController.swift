@@ -53,6 +53,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func answerButton1(_ sender: Any) {
+        self.view.backgroundColor = UIColor.green
+        displayQuestionAndAnswers()
+    }
+    
+    @IBAction func answerButton2(_ sender: Any) {
+        self.view.backgroundColor = UIColor.red
+        answerButton2.isEnabled = false
+    }
+    
     
 }
 
