@@ -43,11 +43,30 @@ class ViewController: UIViewController {
         
         ViewController.questionNumber += 1
     }
+    
+    func enableButtons() {
+        answerButton1.isEnabled = true
+        answerButton2.isEnabled = true
+    }
+    
+    func loseGame() {
+        if ViewController.questionsWrong == 3 {
+            answerButton1.isEnabled = false
+            answerButton2.isEnabled = false
+            questionLabel.text = "You lose!"
+        }
+    }
+    
+    func playGame() {
+        displayQuestionAndAnswers()
+        enableButtons()
+        loseGame()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        displayQuestionAndAnswers()
+        playGame()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +77,7 @@ class ViewController: UIViewController {
     @IBAction func answerButton1(_ sender: Any) {
         self.view.backgroundColor = UIColor.green
         ViewController.questionsRight += 1
-        displayQuestionAndAnswers()
+        playGame()
     }
     
     @IBAction func answerButton2(_ sender: Any) {
