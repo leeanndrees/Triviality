@@ -19,6 +19,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    var questionsAndAnswers = [
+        ("question1", "rightAnswer1", "wrongAnswer1"),
+        ("question2", "rightAnswer2", "wrongAnswer2"),
+        ("question3", "rightAnswer3", "wrongAnswer3"),
+        ("question4", "rightAnswer4", "wrongAnswer4"),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
