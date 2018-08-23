@@ -21,6 +21,8 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerButton1: UIButton!
+    @IBOutlet weak var answerButton2: UIButton!
     
     var questionsAndAnswers = [
         ("question1", ["rightAnswer1", "wrongAnswer1"]),
@@ -29,15 +31,21 @@ class ViewController: UIViewController {
         ("question4", ["rightAnswer4", "wrongAnswer4"]),
     ]
     
-    func displayQuestion(roundNumber: Int) {
-        let questionNumber = roundNumber - 1
-        questionLabel.text = questionsAndAnswers[questionNumber].0
+    func displayQuestionAndAnswers() {
+        var questionNumber = 0
+        let theQuestion = questionsAndAnswers[questionNumber]
+        
+        questionLabel.text = theQuestion.0
+        answerButton1.setTitle("\(theQuestion.1[0])", for: .normal)
+        answerButton2.setTitle("\(theQuestion.1[1])", for: .normal)
+        
+        questionNumber += 1
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        displayQuestion(roundNumber: 1)
+        displayQuestionAndAnswers()
     }
 
     override func didReceiveMemoryWarning() {
