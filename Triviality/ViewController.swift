@@ -73,6 +73,9 @@ class ViewController: UIViewController {
     }
     
     func playGame() {
+        playAgainButton.isHidden = true
+        // need to add a delay on BG change
+        view.self.backgroundColor = UIColor.white
         displayQuestionAndAnswers()
         enableButtons()
         loseGame()
@@ -81,7 +84,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        playAgainButton.isHidden = true
         playGame()
     }
 
@@ -100,6 +102,13 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.red
         answerButton2.isEnabled = false
         ViewController.questionsWrong += 1
+    }
+    
+    @IBAction func playAgainButton(_ sender: Any) {
+        ViewController.questionNumber = 0
+        ViewController.questionsWrong = 0
+        ViewController.questionsRight = 0
+        playGame()
     }
     
     
