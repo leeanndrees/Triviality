@@ -30,6 +30,9 @@ class ViewController: UIViewController {
     static var questionsWrong = 0
     static var questionsRight = 0
     static var userScore = 0
+    static var green = UIColor(red:0.71, green:0.98, blue:0.79, alpha:1.0)
+    static var red = UIColor(red:0.89, green:0.40, blue:0.36, alpha:1.0)
+    static var defaultBG = UIColor(red:0.54, green:0.74, blue:0.62, alpha:1.0)
     
     var questionsAndAnswers = [
         ("In what year did French colonists settle in Detroit?", ["1701", "1799"]),
@@ -90,7 +93,7 @@ class ViewController: UIViewController {
         playAgainButton.isHidden = true
         scoreLabel.isHidden = true
         // need to add a delay on BG change
-        view.self.backgroundColor = UIColor.white
+        view.self.backgroundColor = ViewController.defaultBG
         displayQuestionAndAnswers()
         enableButtons()
         loseGame()
@@ -108,13 +111,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func answerButton1(_ sender: Any) {
-        self.view.backgroundColor = UIColor.green
+        self.view.backgroundColor = ViewController.green
         ViewController.questionsRight += 1
         playGame()
     }
     
     @IBAction func answerButton2(_ sender: Any) {
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = ViewController.red
         answerButton2.isEnabled = false
         ViewController.questionsWrong += 1
     }
