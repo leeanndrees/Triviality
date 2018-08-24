@@ -32,10 +32,13 @@ class ViewController: UIViewController {
     static var userScore = 0
     
     var questionsAndAnswers = [
-        ("question1", ["rightAnswer1", "wrongAnswer1"]),
-        ("question2", ["rightAnswer2", "wrongAnswer2"]),
-        ("question3", ["rightAnswer3", "wrongAnswer3"]),
-        ("question4", ["rightAnswer4", "wrongAnswer4"]),
+        ("In what year did French colonists settle in Detroit?", ["1701", "1799"]),
+        ("When did indigenous people arrive in what is now the Detroit area?", ["As early as 11,000 years ago", "As early as 5,000 years ago"]),
+        ("Which mayor was famous for creating \"ribbon farms\" in the city?", ["Hazen Pingree", "Coleman Young"]),
+        ("question5", ["really really really long answer that is so long it will definitely go onto two lines at least for sure definitely rightAnswer5", "wrongAnswer5"]),
+        ("question6", ["rightAnswer6", "wrongAnswer6"]),
+        ("question7", ["rightAnswer7", "wrongAnswer7"]),
+        ("question8", ["rightAnswer8", "wrongAnswer8"]),
     ]
     
     func displayQuestionAndAnswers() {
@@ -78,6 +81,9 @@ class ViewController: UIViewController {
             answerButton2.isEnabled = false
             questionLabel.text = "You lose!"
         }
+        else {
+            return
+        }
     }
     
     func playGame() {
@@ -104,7 +110,7 @@ class ViewController: UIViewController {
     @IBAction func answerButton1(_ sender: Any) {
         self.view.backgroundColor = UIColor.green
         ViewController.questionsRight += 1
-        //playGame()
+        playGame()
     }
     
     @IBAction func answerButton2(_ sender: Any) {
