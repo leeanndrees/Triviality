@@ -82,6 +82,7 @@ class ViewController: UIViewController {
     
     func playGame() {
         playAgainButton.isHidden = true
+        scoreLabel.isHidden = true
         // need to add a delay on BG change
         view.self.backgroundColor = UIColor.white
         displayQuestionAndAnswers()
@@ -102,9 +103,6 @@ class ViewController: UIViewController {
 
     @IBAction func answerButton1(_ sender: Any) {
         self.view.backgroundColor = UIColor.green
-    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-            self.view.backgroundColor = UIColor.white
-        }
         ViewController.questionsRight += 1
         //playGame()
     }
