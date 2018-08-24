@@ -24,10 +24,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     static var questionNumber = 0
     static var questionsWrong = 0
     static var questionsRight = 0
+    static var userScore = 0
     
     var questionsAndAnswers = [
         ("question1", ["rightAnswer1", "wrongAnswer1"]),
@@ -58,10 +60,16 @@ class ViewController: UIViewController {
         answerButton2.isEnabled = true
     }
     
+    func getScore() {
+        ViewController.userScore = ViewController.questionsRight - ViewController.questionsWrong
+        scoreLabel.text = String(ViewController.userScore)
+    }
+    
     func endGame() {
         answerButton1.isEnabled = false
         answerButton2.isEnabled = false
         playAgainButton.isHidden = false
+        getScore()
     }
     
     func loseGame() {
@@ -94,8 +102,11 @@ class ViewController: UIViewController {
 
     @IBAction func answerButton1(_ sender: Any) {
         self.view.backgroundColor = UIColor.green
+    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+            self.view.backgroundColor = UIColor.white
+        }
         ViewController.questionsRight += 1
-        playGame()
+        //playGame()
     }
     
     @IBAction func answerButton2(_ sender: Any) {
@@ -108,6 +119,7 @@ class ViewController: UIViewController {
         ViewController.questionNumber = 0
         ViewController.questionsWrong = 0
         ViewController.questionsRight = 0
+        ViewController.userScore = 0
         playGame()
     }
     

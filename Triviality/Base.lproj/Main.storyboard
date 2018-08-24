@@ -49,6 +49,13 @@
                                     <action selector="playAgainButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DhA-7B-pU1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysh-eV-QVz">
+                                <rect key="frame" x="162" y="536" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -58,6 +65,7 @@
                         <outlet property="answerButton2" destination="bha-hp-cjo" id="oMC-FV-rXw"/>
                         <outlet property="playAgainButton" destination="7uG-Bo-dhT" id="r6t-ud-iJX"/>
                         <outlet property="questionLabel" destination="0Gd-Py-hkX" id="iOZ-M5-rwP"/>
+                        <outlet property="scoreLabel" destination="ysh-eV-QVz" id="Za8-53-tsY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
