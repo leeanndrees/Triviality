@@ -20,12 +20,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    // MARK: - Static Variables
     static var questionNumber = 0
     static var questionsWrong = 0
     static var questionsRight = 0
@@ -68,7 +71,8 @@ class ViewController: UIViewController {
     
     func getScore() {
         ViewController.userScore = ViewController.questionsRight - ViewController.questionsWrong
-        scoreLabel.text = String(ViewController.userScore)
+        scoreLabel.text = "Your Score: \(String(ViewController.userScore))"
+        scoreLabel.isHidden = false
     }
     
     func endGame() {
