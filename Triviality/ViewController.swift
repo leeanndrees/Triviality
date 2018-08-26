@@ -56,7 +56,6 @@ class ViewController: UIViewController {
         answerButton2.setTitle("\(theQuestion.1[1])", for: .normal)
         
         ViewController.questionNumber += 1
-        print(ViewController.questionNumber)
         }
     
         else {
