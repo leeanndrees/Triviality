@@ -82,14 +82,10 @@ class ViewController: UIViewController {
     }
     
     func loseGame() {
-        if ViewController.questionsWrong == 3 {
-            answerButton1.isEnabled = false
-            answerButton2.isEnabled = false
-            questionLabel.text = "You lose!"
-        }
-        else {
-            return
-        }
+        answerButton1.isEnabled = false
+        answerButton2.isEnabled = false
+        questionLabel.text = "You lose!"
+        playAgainButton.isHidden = false
     }
     
     func playGame() {
@@ -98,7 +94,6 @@ class ViewController: UIViewController {
         view.self.backgroundColor = ViewController.defaultBG
         displayQuestionAndAnswers()
         enableButtons()
-        loseGame()
     }
 
     override func viewDidLoad() {
@@ -125,6 +120,9 @@ class ViewController: UIViewController {
         self.view.backgroundColor = ViewController.red
         answerButton2.isEnabled = false
         ViewController.questionsWrong += 1
+        if ViewController.questionsWrong == 3 {
+            loseGame()
+        }
     }
     
     @IBAction func playAgainButton(_ sender: Any) {
