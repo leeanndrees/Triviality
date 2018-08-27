@@ -50,10 +50,24 @@ class ViewController: UIViewController {
     func displayQuestionAndAnswers() {
         if ViewController.questionNumber != questionsAndAnswers.count {
         let theQuestion = questionsAndAnswers[ViewController.questionNumber]
+            
+        var answerOptions = theQuestion.1
+        
+        var answersShuffled = [String]();
+        for answers in 0..<answerOptions.count
+        {
+            // randomizing order of answers
+            let rand = Int(arc4random_uniform(UInt32(answerOptions.count)))
+            // storing the randomized order of answers
+            answersShuffled.append(answerOptions[rand])
+
+            // removing the answer once we've put it in shuffled array
+            answerOptions.remove(at: rand)
+        }
         
         questionLabel.text = theQuestion.0
-        answerButton1.setTitle("\(theQuestion.1[0])", for: .normal)
-        answerButton2.setTitle("\(theQuestion.1[1])", for: .normal)
+        answerButton1.setTitle("\(answersShuffled[0])", for: .normal)
+        answerButton2.setTitle("\(answersShuffled[1])", for: .normal)
         
         ViewController.questionNumber += 1
         }
@@ -120,7 +134,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor = ViewController.red
         answerButton2.isEnabled = false
         ViewController.questionsWrong += 1
-        if ViewController.questionsWrong == 3 {
+        if ViewController.questionsWrong == 4 {
             loseGame()
         }
     }
