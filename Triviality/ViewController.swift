@@ -110,7 +110,7 @@ class ViewController: UIViewController {
     @IBAction func answerButton1(_ sender: Any) {
         self.view.backgroundColor = ViewController.green
         ViewController.questionsRight += 1
-        let delayInSeconds = 1.0
+        let delayInSeconds = 0.25
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
             self.playGame()
         }
