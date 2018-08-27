@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     static var userScore = 0
     static var green = UIColor(red:0.71, green:0.98, blue:0.79, alpha:1.0)
     static var red = UIColor(red:0.89, green:0.40, blue:0.36, alpha:1.0)
-    static var defaultBG = UIColor(red:0.54, green:0.74, blue:0.62, alpha:1.0)
+    static var defaultBG = UIColor(red:0.80, green:0.79, blue:0.91, alpha:1.0)
     static var colorToBe = defaultBG
     
     var colorTimer: Timer!
