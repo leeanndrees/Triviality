@@ -41,10 +41,10 @@ class ViewController: UIViewController {
         ("In what year did French colonists settle in Detroit?", ["1701", "1799"]),
         ("When did indigenous people arrive in what is now the Detroit area?", ["As early as 11,000 years ago", "As early as 5,000 years ago"]),
         ("Which mayor was famous for creating \"ribbon farms\" in the city?", ["Hazen Pingree", "Coleman Young"]),
-        ("question5", ["really really really long answer that is so long it will definitely go onto two lines at least for sure definitely rightAnswer5", "wrongAnswer5"]),
-        ("question6", ["rightAnswer6", "wrongAnswer6"]),
-        ("question7", ["rightAnswer7", "wrongAnswer7"]),
-        ("question8", ["rightAnswer8", "wrongAnswer8"]),
+        ("In which year was Detroit officially declared the City of Champions?", ["1936", "1952"]),
+        ("Is Vernor's medicinal?", ["Yes", "No"]),
+        ("Which dictator received the Key to the City?", ["Saddam Hussein", "Idi Amin"]),
+        ("First #1 Motown hit single?", ["Please Mr. Postman, The Marvelettes", "You've Really Got a Hold on Me, The Miracles"]),
     ]
     
     func displayQuestionAndAnswers() {
