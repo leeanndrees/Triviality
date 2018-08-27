@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         }
         else {
             self.view.backgroundColor = ViewController.red
-            answerButton2.isEnabled = false
+            //answerButton2.isEnabled = false
             ViewController.questionsWrong += 1
             if ViewController.questionsWrong == 4 {
                 loseGame()
@@ -144,10 +144,20 @@ class ViewController: UIViewController {
 
     @IBAction func answerButton1(_ sender: Any) {
         checkAnswer(answerButtonText: answerButton1.title(for: .normal)!)
+        if let answerButton1Title: String = answerButton1.title(for: .normal)! {
+            if answerButton1Title != ViewController.rightAnswer {
+                answerButton1.isEnabled = false
+            }
+        }
     }
     
     @IBAction func answerButton2(_ sender: Any) {
         checkAnswer(answerButtonText: answerButton2.title(for: .normal)!)
+        if let answerButton2Title: String = answerButton2.title(for: .normal)! {
+            if answerButton2Title != ViewController.rightAnswer {
+                answerButton2.isEnabled = false
+            }
+        }
     }
     
     @IBAction func playAgainButton(_ sender: Any) {
