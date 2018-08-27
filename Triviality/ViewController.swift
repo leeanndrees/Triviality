@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     static var questionNumber = 0
     static var questionsWrong = 0
     static var questionsRight = 0
+    static var rightAnswer = ""
     static var userScore = 0
     static var green = UIColor(red:0.71, green:0.98, blue:0.79, alpha:1.0)
     static var red = UIColor(red:0.89, green:0.40, blue:0.36, alpha:1.0)
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
         let theQuestion = questionsAndAnswers[ViewController.questionNumber]
             
         var answerOptions = theQuestion.1
+            ViewController.rightAnswer = theQuestion.1[0]
         
         var answersShuffled = [String]();
         for answers in 0..<answerOptions.count
@@ -80,6 +82,25 @@ class ViewController: UIViewController {
     func enableButtons() {
         answerButton1.isEnabled = true
         answerButton2.isEnabled = true
+    }
+    
+    func checkAnswer(answerButtonText: String) {
+        if answerButtonText == ViewController.rightAnswer {
+            self.view.backgroundColor = ViewController.green
+            ViewController.questionsRight += 1
+            let delayInSeconds = 0.25
+            DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+                self.playGame()
+            }
+        }
+        else {
+            self.view.backgroundColor = ViewController.red
+            answerButton2.isEnabled = false
+            ViewController.questionsWrong += 1
+            if ViewController.questionsWrong == 4 {
+                loseGame()
+            }
+        }
     }
     
     func getScore() {
@@ -122,21 +143,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func answerButton1(_ sender: Any) {
-        self.view.backgroundColor = ViewController.green
-        ViewController.questionsRight += 1
-        let delayInSeconds = 0.25
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
-            self.playGame()
-        }
+        checkAnswer(answerButtonText: answerButton1.title(for: .normal)!)
     }
     
     @IBAction func answerButton2(_ sender: Any) {
-        self.view.backgroundColor = ViewController.red
-        answerButton2.isEnabled = false
-        ViewController.questionsWrong += 1
-        if ViewController.questionsWrong == 4 {
-            loseGame()
-        }
+        checkAnswer(answerButtonText: answerButton2.title(for: .normal)!)
     }
     
     @IBAction func playAgainButton(_ sender: Any) {
