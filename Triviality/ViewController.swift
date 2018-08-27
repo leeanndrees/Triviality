@@ -85,6 +85,7 @@ class ViewController: UIViewController {
     }
     
     func checkAnswer(answerButtonText: String) {
+        // move bg color change to function
         if answerButtonText == ViewController.rightAnswer {
             self.view.backgroundColor = ViewController.green
             ViewController.questionsRight += 1
@@ -144,6 +145,7 @@ class ViewController: UIViewController {
 
     @IBAction func answerButton1(_ sender: Any) {
         checkAnswer(answerButtonText: answerButton1.title(for: .normal)!)
+        // move to function:
         if let answerButton1Title: String = answerButton1.title(for: .normal)! {
             if answerButton1Title != ViewController.rightAnswer {
                 answerButton1.isEnabled = false
@@ -153,6 +155,7 @@ class ViewController: UIViewController {
     
     @IBAction func answerButton2(_ sender: Any) {
         checkAnswer(answerButtonText: answerButton2.title(for: .normal)!)
+        //move to function:
         if let answerButton2Title: String = answerButton2.title(for: .normal)! {
             if answerButton2Title != ViewController.rightAnswer {
                 answerButton2.isEnabled = false
