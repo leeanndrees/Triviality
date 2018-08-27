@@ -96,12 +96,15 @@ class ViewController: UIViewController {
         }
         else {
             self.view.backgroundColor = ViewController.red
-            //answerButton2.isEnabled = false
             ViewController.questionsWrong += 1
             if ViewController.questionsWrong == 4 {
                 loseGame()
             }
         }
+    }
+    
+    func disableWrongAnswerButton(theButton: UIButton, theButtonText: String) {
+        theButton.isEnabled = false
     }
     
     func getScore() {
@@ -145,21 +148,15 @@ class ViewController: UIViewController {
 
     @IBAction func answerButton1(_ sender: Any) {
         checkAnswer(answerButtonText: answerButton1.title(for: .normal)!)
-        // move to function:
         if let answerButton1Title: String = answerButton1.title(for: .normal)! {
-            if answerButton1Title != ViewController.rightAnswer {
-                answerButton1.isEnabled = false
-            }
+            disableWrongAnswerButton(theButton: answerButton1, theButtonText: answerButton1Title)
         }
     }
     
     @IBAction func answerButton2(_ sender: Any) {
         checkAnswer(answerButtonText: answerButton2.title(for: .normal)!)
-        //move to function:
-        if let answerButton2Title: String = answerButton2.title(for: .normal)! {
-            if answerButton2Title != ViewController.rightAnswer {
-                answerButton2.isEnabled = false
-            }
+        if let answerButton2Title: String = answerButton1.title(for: .normal)! {
+            disableWrongAnswerButton(theButton: answerButton2, theButtonText: answerButton2Title)
         }
     }
     
