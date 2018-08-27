@@ -36,9 +36,7 @@ class ViewController: UIViewController {
     static var green = UIColor(red:0.71, green:0.98, blue:0.79, alpha:1.0)
     static var red = UIColor(red:0.89, green:0.40, blue:0.36, alpha:1.0)
     static var defaultBG = UIColor(red:0.80, green:0.79, blue:0.91, alpha:1.0)
-    static var colorToBe = defaultBG
     
-    var colorTimer: Timer!
     var questionsAndAnswers = [
         ("In what year did French colonists settle in Detroit?", ["1701", "1799"]),
         ("When did indigenous people arrive in what is now the Detroit area?", ["As early as 11,000 years ago", "As early as 5,000 years ago"]),
@@ -102,18 +100,6 @@ class ViewController: UIViewController {
         enableButtons()
         loseGame()
     }
-    
-    func startTimer() {
-        colorTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(changeColor), userInfo: nil, repeats: true)
-    }
-    
-    func endTimer() {
-        colorTimer.invalidate()
-    }
-    
-    @objc func changeColor() {
-        view.self.backgroundColor = ViewController.colorToBe
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,9 +114,8 @@ class ViewController: UIViewController {
 
     @IBAction func answerButton1(_ sender: Any) {
         self.view.backgroundColor = ViewController.green
-        startTimer()
         ViewController.questionsRight += 1
-        let delayInSeconds = 2.5
+        let delayInSeconds = 1.5
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
             self.playGame()
         }
@@ -140,7 +125,6 @@ class ViewController: UIViewController {
         self.view.backgroundColor = ViewController.red
         answerButton2.isEnabled = false
         ViewController.questionsWrong += 1
-        //startTimer()
     }
     
     @IBAction func playAgainButton(_ sender: Any) {
